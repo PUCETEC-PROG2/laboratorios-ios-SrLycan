@@ -11,9 +11,19 @@ struct Profile: View {
     var body: some View{
         NavigationStack{
             VStack {
-                Text("Perfil de usuario")
+                Text("Dennys Progamer ProMaxIphone17pro")
+                    .font(.title)
+                Image (uiImage: .githublogo)
+                    .resizable()
+                    .scaledToFit()
+                Text("SrLycan")
+                    .font(.headline)
+                    .padding(.vertical)
+                Text("descripcion pro pro max lorem ipsum kasjkdsajkdjksajdksjakdjsakjdksajdksajdkasjkdjaskdjaskjdkjsadkajsdkasjkdjsakdjas")
+                    .font(.caption)
             }
-            .navigationTitle("Perfil")
+            .padding()
+            .navigationTitle("Perfil de Usuario")
             .navigationBarTitleDisplayMode(.inline)
             
         }
