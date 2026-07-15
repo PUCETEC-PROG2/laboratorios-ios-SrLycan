@@ -8,29 +8,38 @@
 import SwiftUI
 
 struct RepoItem: View {
+    let repository: Repository
     var body: some View {
         HStack {
-            Image (uiImage: .githublogo)
-                .resizable()
-                .frame(width: 80, height: 80)
-            VStack (alignment: .leading) {
-                Text("Nombre del Repositorio")
+            AsyncImage(url: URL(string: repository.owner.avatarUrl)) {
+                image in
+                image
+                    .resizable()
+            } placeholder: {
+                Image (uiImage: .githubLogo)
+                    .resizable()
+                    .scaledToFit()
+            } .frame(width: 80, height: 80)
+            
+            VStack (alignment: leading){
+                Text(repository.name)
                     .font(.title2)
-                Text("Descripción del repositorio Loremp Impsum asdasdasddasd asdsad")
-                    .font(.caption)
-                    .padding(.top, 0.1)
+                if let description = repository.description {
+                    Text(repository.description)
+                        .font(.caption)
+                        .padding(.top, 0.1)
+                }
                 HStack {
-                    Text ("Lenguaje")
+                    Text("Lenguaje")
                         .fontWeight(.bold)
                     Spacer()
-                    Text ("Swift")
+                    Text(language)
                 }
                 .font(.caption2)
                 .padding(.top, 0.1)
             }
-            .padding (.leading)
-        }
     }
+        .padding(.leading)
 }
 
 #Preview {
