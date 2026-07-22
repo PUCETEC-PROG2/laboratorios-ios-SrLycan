@@ -13,7 +13,7 @@ struct Profile: View {
             VStack {
                 Text("Dennys Progamer ProMaxIphone17pro")
                     .font(.title)
-                Image (uiImage: .githublogo)
+                Image (uiImage: .githubLogo)
                     .resizable()
                     .scaledToFit()
                 Text("SrLycan")
